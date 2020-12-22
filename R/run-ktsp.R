@@ -254,11 +254,6 @@ train_ktsp <- train_votes %>%
       mutate(kpred = ifelse(num_votes > num_pairs/2, 1, 0))
   }) 
 
-train_ktsp %>%
-  group_by(num_pairs) %>%
-  summarize(accuracy = mean(recent == kpred), 
-            .groups = "drop")
-
 # Testing
 test_ktsp <- pep_ratio_test %>%
   pivot_longer(cols = contains("pep"), 
