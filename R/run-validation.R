@@ -3,15 +3,15 @@
 # -----------------------
 
 # load discovery data to show duplicates
-load("data/hiv_data.rda")
+load(here("data_raw/hiv_data.rda"))
 discovery_rc <- sample_anno[, c("key", "ptid", "yrs_post_sero")] %>%
   mutate(key = paste(ptid, yrs_post_sero, sep = "_"))
 rm(list = (ls()[ls()!= "discovery_rc"]))
 
-load("data/validation_data.rda")
+load(here("data_raw/validation_data.rda"))
 
 # Load ktsp optimal cutoffs and peptide pairs
-kpep_list <- readRDS("data/kpep_list.rds")
+kpep_list <- readRDS(here("data_processed/kpep_list.rds"))
 
 validation_tsp <- rc_ptid_yrs[, c("ptid", "yrs_post_sero", kpep_list$pep_1, kpep_list$pep_2)] %>%
   mutate(`pep_25409-pep_77241` = pep_25409 - pep_77241, 
@@ -24,8 +24,8 @@ validation_tsp <- rc_ptid_yrs[, c("ptid", "yrs_post_sero", kpep_list$pep_1, kpep
   mutate(ktsp_votes = ifelse(rc <= opti_cutoff, 1, 0)) %>%
   dplyr::select(ptid, yrs_post_sero, pep_pair, ktsp_votes) %>%
   group_by(ptid, yrs_post_sero) %>%
-  summarize(ktsp_rec = ifelse(sum(ktsp_votes) >= 3, 1, 0), .groups = "drop") %>%
+  summarize(ktsp4_rec = ifelse(sum(ktsp_votes) >= 3, 1, 0), 
+            ktsp3_rec = ifelse(sum(ktsp_votes[pep_pair %in% kpep_list$pep_pair[1:3]]) >= 2, 1, 0), 
+            .groups = "drop") %>%
   ungroup() %>%
   mutate(acc_rec = ifelse(yrs_post_sero <= 1, 1, 0))
-
-# saveRDS(validation_tsp, file = "data_processed/validation_tsp.rds")

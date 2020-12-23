@@ -6,7 +6,7 @@
 # Generates `data_processed/slopes.rda`
 # -----------------------
 
-load("data/hiv_data.rda")
+load(here("data_raw/hiv_data.rda"))
 
 #' Helper function to calculate to tidy and fit the linear model
 #'

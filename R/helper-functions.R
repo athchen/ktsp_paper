@@ -10,7 +10,7 @@
 #' @return datafram with `ptid`, `yrs_post_sero`, `pep_pair`, `logratio`
 get_ratio <- function(pep1, pep2, data){
   
-  logratio <- data[, pep1] - data[, pep2]
+  logratio <- unname(data[, pep1] - data[, pep2])
   
   return(data.frame(ptid = data$ptid,
                     yrs_post_sero = data$yrs_post_sero,

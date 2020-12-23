@@ -1,8 +1,6 @@
 # run-ktsp.R ------------
 # Code to form peptide pairs, identify optimal cutoffs, and select k 
 # using a train/test partition. 
-#
-# Generates `data_processed/train_test_tsp.rda`
 # -----------------------
 
 load(here("data_raw/hiv_data.rda"))
@@ -260,7 +258,7 @@ test_ktsp <- pep_ratio_test %>%
                names_to = "pep_pair", 
                values_to = "rc") %>%
   left_join(train_opti_cutoffs, by = c("pep_pair")) %>%
-  mutate(pred_rec = ifelse(rc<= opti_cutoff, 1, 0)) %>%
+  mutate(pred_rec = ifelse(rc <= opti_cutoff, 1, 0)) %>%
   filter(pep_pair %in% kpep_list$pep_pair) %>%
   group_by(ptid, yrs_post_sero, recent) %>%
   group_split() %>%
@@ -288,5 +286,3 @@ lag_train <- sample_anno %>%
 
 # Get lag curve
 lag_curve <- get_cutoffs(lag_train, "lag")
-
-# save(list = ls(), file = "data_processed/train_test_tsp.rda")
