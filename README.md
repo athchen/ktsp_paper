@@ -10,22 +10,23 @@ The session info, including all packages used in the analyses and their respecti
 
 Contains `.rda` files with normalized read counts and relevant sample and peptide annotation. 
 
-* `hiv_data.rda`: data for the training and testing set
-* `validation_data.rda`: data for the validation set
+* **`hiv_data.rda`**: data for the training and testing set.
+* **`validation_data.rda`**: data for the validation set.
 
-Within each `.rda` file are four objects:
+Within each `.rda` file are give objects:
 
-* `rc_ptid_yrs`: matrix of log10 normalized read counts for each samples (rows are samples, columns are peptides)
-* `pt_anno`: annotation matrix for all study participants
-* `sample_anno`: sample specific metadata
-* `pep_anno`: description of the peptides 
+* `rc_ptid_yrs`: matrix of log10 normalized read counts for each samples (rows are samples, columns are peptides).
+* `pt_anno`: annotation matrix for all study participants.
+* `sample_anno`: sample specific metadata.
+* `pep_anno`: description of the peptides.
+* `hiv_ind`: row indices of `pep_anno` indicating which peptides span the HIV genome.
 
 ### **`data_processed`**
 
 Generated output used in later parts of the analyses.
 
-* `kpep_list.rds`: sorted data frame of the top 10 peptide pairs, along with their optimal cutoffs. Generated in `R/run-ktsp.R`.
-* `slopes.rda`: regression results obtained using code in `R/run-slopes.R`. 
+* **`kpep_list.rds`**: sorted data frame of the top 10 peptide pairs, along with their optimal cutoffs. Generated in `R/run-ktsp.R`.
+* **`slopes.rda`**: regression results obtained using code in `R/run-slopes.R`. 
 
 ### **`figures`**
 
@@ -44,13 +45,14 @@ R scripts used to generate the objects in `data_processed` and the figure files 
 * **`run-full-data-cutoffs.R`** examines the performance of the classifier if the full data was used to derive the optimal cutoffs for the top performing pairs. 
 * **`table-data-summary.R`** generates tables:
     + Table 1: description of the training, testing, and validation sets. 
-    + Table S2: description of repeated samples and samples from new visits from individuals in the train+test set. * **`table-full-data-cutoffs.R`** generates tables:
+    + Table S2: description of repeated samples and samples from new visits from individuals in the train+test set.
+* **`table-full-data-cutoffs.R`** generates tables:
     + Table S5: comparison of cutoffs identified using the training data only versus the full (train and test) data. 
 * **`table-ktsp-results.R`** generates tables:
     + Table 2: performance of the kTSP classifier versus the current LAg + viral load approach. 
-    + Table S4: performance of the 3TSP versus 4TSP classifier
+    + Table S4: performance of the 3TSP versus 4TSP classifier.
 * **`table-pep-summary.R`** generates tables:
-    + Table S1: distribution of peptides in spanning the HIV genome
+    + Table S1: distribution of peptides in spanning the HIV genome.
     
 
 # Mapping of manuscript content to repository files
@@ -90,6 +92,7 @@ The code for the methods described were run in the order of:
 # Session Info
 
 ```
+> devtools::session_info()
 ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────
  setting  value                       
  version  R version 4.0.2 (2020-06-22)
@@ -119,7 +122,6 @@ The code for the methods described were run in the order of:
  digest         0.6.27  2020-10-24 [1] CRAN (R 4.0.2)
  dplyr        * 1.0.2   2020-08-18 [1] CRAN (R 4.0.2)
  ellipsis       0.3.1   2020-05-15 [1] CRAN (R 4.0.0)
- evaluate       0.14    2019-05-28 [1] CRAN (R 4.0.0)
  fansi          0.4.1   2020-01-08 [1] CRAN (R 4.0.0)
  farver         2.0.3   2020-01-16 [1] CRAN (R 4.0.0)
  forcats      * 0.5.0   2020-03-01 [1] CRAN (R 4.0.0)
@@ -131,12 +133,9 @@ The code for the methods described were run in the order of:
  gtable         0.3.0   2019-03-25 [1] CRAN (R 4.0.0)
  haven          2.3.1   2020-06-01 [1] CRAN (R 4.0.0)
  here         * 0.1     2017-05-28 [1] CRAN (R 4.0.2)
- highr          0.8     2019-03-20 [1] CRAN (R 4.0.0)
  hms            0.5.3   2020-01-08 [1] CRAN (R 4.0.0)
- htmltools      0.5.0   2020-06-16 [1] CRAN (R 4.0.0)
  httr           1.4.2   2020-07-20 [1] CRAN (R 4.0.2)
  jsonlite       1.7.1   2020-09-07 [1] CRAN (R 4.0.2)
- kableExtra   * 1.3.1   2020-10-22 [1] CRAN (R 4.0.2)
  knitr          1.30    2020-09-22 [1] CRAN (R 4.0.2)
  labeling       0.4.2   2020-10-20 [1] CRAN (R 4.0.2)
  lattice        0.20-41 2020-04-02 [1] CRAN (R 4.0.2)
@@ -166,7 +165,6 @@ The code for the methods described were run in the order of:
  remotes        2.2.0   2020-07-21 [1] CRAN (R 4.0.2)
  reprex         0.3.0   2019-05-16 [1] CRAN (R 4.0.0)
  rlang          0.4.8   2020-10-08 [1] CRAN (R 4.0.2)
- rmarkdown      2.5     2020-10-21 [1] CRAN (R 4.0.2)
  rprojroot      1.3-2   2018-01-03 [1] CRAN (R 4.0.0)
  rstudioapi     0.13    2020-11-12 [1] CRAN (R 4.0.2)
  rvest          0.3.6   2020-07-25 [1] CRAN (R 4.0.2)
@@ -181,14 +179,10 @@ The code for the methods described were run in the order of:
  tidyselect     1.1.0   2020-05-11 [1] CRAN (R 4.0.0)
  tidyverse    * 1.3.0   2019-11-21 [1] CRAN (R 4.0.2)
  usethis      * 1.6.3   2020-09-17 [1] CRAN (R 4.0.2)
- utf8           1.1.4   2018-05-24 [1] CRAN (R 4.0.0)
  vctrs          0.3.4   2020-08-29 [1] CRAN (R 4.0.2)
- viridisLite    0.3.0   2018-02-01 [1] CRAN (R 4.0.0)
- webshot        0.5.2   2019-11-22 [1] CRAN (R 4.0.0)
  withr          2.3.0   2020-09-22 [1] CRAN (R 4.0.2)
  xfun           0.19    2020-10-30 [1] CRAN (R 4.0.2)
  xml2           1.3.2   2020-04-23 [1] CRAN (R 4.0.0)
 
 [1] /Library/Frameworks/R.framework/Versions/4.0/Resources/library
 ```
-
