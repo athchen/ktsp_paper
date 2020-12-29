@@ -3,6 +3,9 @@
 # using a train/test partition. 
 # -----------------------
 
+library(tidyverse)
+library(here)
+
 load(here("data_raw/hiv_data.rda"))
 load(here("data_processed/slopes.rda"))
 source(here("R/helper-functions.R"))
