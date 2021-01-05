@@ -83,6 +83,7 @@ The code for the methods described were run in the order of:
 * Figure 3 - in `figures/loocv-k.pdf`; generated with `R/figure-loocv-k.R`
 * Figure 4 - in `figures/ktsp_scheme.png`; generated in Microsoft PowerPoint. 
 * Figure 5 - in `figures/prc.pdf`; generated with `R/figure-roc.R`
+* Figure 6 - in `figures/roc-with-window.pdf`; generated with `R/figure-roc.R`
 * Table 1 - generated with `R/table-pep-summary.R`
 * Table 2 - generated with `R/table-data-summary.R`
 * Table 3 - generated with `R/table-pep-summary.R`
