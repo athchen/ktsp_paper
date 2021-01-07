@@ -27,6 +27,7 @@ Generated output used in later parts of the analyses.
 
 * **`kpep_list.rds`**: sorted data frame of the top 10 peptide pairs, along with their optimal cutoffs. Generated in `R/run-ktsp.R`.
 * **`slopes.rda`**: regression results obtained using code in `R/run-slopes.R`. 
+* **`validation_tsp.rds`**: ktsp results obtained using code in `R/run-validation.R`
 
 ### **`figures`**
 
