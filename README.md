@@ -1,6 +1,6 @@
 # ktsp_paper
 
-This repository contains all of the data and the code to reproduce the work presented in the paper **A Top Scoring Pairs Classifier for Recent HIV Infections**. 
+This repository contains all of the data and the code to reproduce the work presented in the paper [**A Top Scoring Pairs Classifier for Recent HIV Infections**](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.8920). 
 
 The session info, including all packages used in the analyses and their respective versions can be found in the [Session Info](#session-info) section of this README.md. All code used to generate the results of the manuscript are mapped in the [section below](#mapping-of-manuscript-content-to-repository-files). A detailed description of the contents of each file in the directory is provided in the [Directory Structure](#directory-structure) section. 
 
